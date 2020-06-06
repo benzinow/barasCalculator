@@ -1,5 +1,3 @@
-//sample change
-
 //math: [];
 //click on number: add it to an array: math as string
 //click on operator: add it to an array: math as string
@@ -92,3 +90,4 @@ function onClickClear() {
   math = [];
   displayMath();
 }
+//test branch comment
