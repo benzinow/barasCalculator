@@ -1,0 +1,76 @@
+/*
+To do:
+support multiple digits
+supports deciamsls
+support deleting single value
+support Order of operations
+commas for big numbers
+prevent division by zero
+preventnumber overflow
+dont allow operator to be first value
+dont allow operator to be last value
+dont allow multiple consecultive operators
+hitting new number should clear results
+display calculation history
+
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.calccase {
+    background-color: darkslategray;
+    width: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.answerbar {
+    width: 600px;
+    height: 200px;
+    border-radius: 30px 30px 30px 0;
+    background-color: #0a2a29;
+    margin: 20px;
+    font-size: 150px;
+    text-align: center;
+    line-height: 200px;
+    color: ghostwhite;
+    text-align: end;
+}
+
+.numberbutt {
+    background-color: darkorange;
+    height: 100px;
+    width: 100px;
+    border-radius: 20px 20px 20px 0;
+    padding: 20px;
+    color: ghostwhite;
+    font-size: 100px;
+    text-align: center;
+    line-height: 100px;
+    margin: 5px;
+    box-shadow: 2px 2px black;
+    box-sizing: initial;
+}
+
+.numberbutt:hover {
+    box-shadow: 0px 0px black;
+}
+
+.longnumberbutt {
+    width: 250px;
+}
+
+.numberbutt:active {
+    box-shadow: -2px -2px black;
+}
+
+.toomuch {
+    font-size: 75px;
+}
