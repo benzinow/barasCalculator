@@ -3,43 +3,81 @@
 //click on operator: add it to an array: math as string
 // "+", "-", "/", "*"
 
+//array holds all of the inputted/symbols
 var math = [];
 
 function onClickNumber(number) {
-  math.push(number);
+  if (math.length > 0) {
+    if (math[math.length - 1].type === "result") {
+      onClickClear();
+    }
+  }
+
+  if (math.length > 0) {
+    if (math[math.length - 1].type === "number") {
+      if (math[math.length - 1].value === "0" && number === "0") {
+        return;
+      }
+
+      math[math.length - 1].value = math[math.length - 1].value + number;
+      displayMath();
+      return;
+    }
+  }
+  let obj = {
+    type: "number",
+    value: number,
+  };
+  math.push(obj);
   displayMath();
 }
 
 function onClickOperator(operator) {
-  math.push(operator);
+  if (math.length === 0) {
+    return;
+  }
+
+  if (math[math.length - 1].type === "operator") {
+    math[math.length - 1].value = operator;
+    displayMath();
+    return;
+  }
+
+  let obj = {
+    type: "operator",
+    value: operator,
+  };
+  math.push(obj);
   displayMath();
 }
 
 function onClickEquals() {
   //loop through math array
-  //if we find a number, we call parseInt
-  //if we find an operator, we
 
+  //check to see if this is an operator
   for (let index = 0; index < math.length; index++) {
-    let value = math[index];
-    let number = parseInt(value);
-    if (isNaN(number) == true) {
+    let valueObj = math[index];
+    if (valueObj.type === "operator") {
       //value = Operator
-      let prevValueString = math[index - 1];
-      let nextValueString = math[index + 1];
+      let prevValueObj = math[index - 1];
+      let nextValueObj = math[index + 1];
       //else {
       //number = Number
       //}
 
       //parse them as numbers
-      let prevValue = parseInt(prevValueString);
-      let nextValue = parseInt(nextValueString);
+      let prevValue = parseInt(prevValueObj.value);
+      let nextValue = parseInt(nextValueObj.value);
 
+      if (valueObj.value === "/" && nextValue === 0) {
+        displayCustomText("The Narwhal Bacons at Midnight");
+        return;
+      }
       //set the default result to 0
       let result = 0;
 
       //check what the operator value is set to
-      switch (value) {
+      switch (valueObj.value) {
         //do the operation
         case "/": {
           result = prevValue / nextValue;
@@ -65,7 +103,12 @@ function onClickEquals() {
       //display the result
       document.getElementById("calculation").innerHTML = result;
       math = [];
-      math.push(result);
+
+      let obj = {
+        type: "result",
+        value: result,
+      };
+      math.push(obj);
     }
   }
 }
@@ -75,7 +118,7 @@ function displayMath() {
   //        0    1    2   3
   let displayString = "";
   for (let index = 0; index < math.length; index++) {
-    displayString += math[index];
+    displayString += math[index].value;
   }
 
   document.getElementById("calculation").innerHTML = displayString;
@@ -86,8 +129,22 @@ function displayMath() {
   //index = 0 (4 < 4) - stops
 }
 
+function displayCustomText(text) {
+  document.getElementById("calculation").innerHTML = text;
+}
+//clear the entire display
 function onClickClear() {
   math = [];
   displayMath();
 }
+//clea the last item on display
+function onClickDelete() {
+  //do something to math array to delete last number
+  math.pop();
+  //update the display
+  displayMath();
+}
+
 //test branch comment
+
+///always use === and !==

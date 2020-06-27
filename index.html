@@ -1,77 +1,75 @@
 <html>
-    <head>
-        <title>Calculate</title>
-        <link rel="stylesheet" href="style.css" />
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <div class="calccase">
-            <div class="answerbar" id="calculation"></div>
-            <button class="numberbutt toomuch" onclick="onClickClear()">
-                AC
-            </button>
-            <button class="numberbutt">
-                &#177;
-            </button>
-            <button class="numberbutt">
-                &#37;
-            </button>
-            <button
-                class="numberbutt functionbutt"
-                onclikc="onClickOperator('/')"
-            >
-                &#247;
-            </button>
+  <head>
+    <title>Calculate</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="calccase">
+      <div class="answerbar" id="calculation"></div>
+      <button class="numberbutt" onclick="onClickDelete()">
+        &laquo;
+      </button>
+      <button class="numberbutt toomuch" onclick="onClickClear()">
+        AC
+      </button>
 
-            <button class="numberbutt" onclick="onClickNumber('1')">
-                1
-            </button>
-            <button class="numberbutt" onclick="onClickNumber('2')">
-                2
-            </button>
-            <button class="numberbutt" onclick="onClickNumber('3')">
-                3
-            </button>
-            <button class="numberbutt" onclick="onClickOperator('*')">
-                &#215;
-            </button>
-            <button class="numberbutt" onclick="onClickNumber('4')">
-                4
-            </button>
-            <button class="numberbutt" onclick="onClickNumber('5')">
-                5
-            </button>
-            <button class="numberbutt" onclick="onClickNumber('6')">
-                6
-            </button>
-            <button class="numberbutt" onclick="onClickOperator('-')">
-                -
-            </button>
-            <button class="numberbutt" onclick="onClickNumber('7')">
-                7
-            </button>
-            <button class="numberbutt" onclick="onClickNumber('8')">
-                8
-            </button>
-            <button class="numberbutt" onclick="onClickNumber('9')">
-                9
-            </button>
-            <button class="numberbutt" onclick="onClickOperator('+')">
-                +
-            </button>
-            <button
-                class="numberbutt longnumberbutt"
-                onclick="onClickNumber('0')"
-            >
-                0
-            </button>
+      <button class="numberbutt">
+        &#177;
+      </button>
+      <button class="numberbutt">
+        &#37;
+      </button>
+      <button class="numberbutt functionbutt" onclick="onClickOperator('/')">
+        &#247;
+      </button>
 
-            <button class="numberbutt">
-                .
-            </button>
-            <button class="numberbutt" onclick="onClickEquals()">
-                =
-            </button>
-        </div>
-    </body>
+      <button class="numberbutt" onclick="onClickNumber('1')">
+        1
+      </button>
+      <button class="numberbutt" onclick="onClickNumber('2')">
+        2
+      </button>
+      <button class="numberbutt" onclick="onClickNumber('3')">
+        3
+      </button>
+      <button class="numberbutt" onclick="onClickOperator('*')">
+        &#215;
+      </button>
+      <button class="numberbutt" onclick="onClickNumber('4')">
+        4
+      </button>
+      <button class="numberbutt" onclick="onClickNumber('5')">
+        5
+      </button>
+      <button class="numberbutt" onclick="onClickNumber('6')">
+        6
+      </button>
+      <button class="numberbutt" onclick="onClickOperator('-')">
+        -
+      </button>
+      <button class="numberbutt" onclick="onClickNumber('7')">
+        7
+      </button>
+      <button class="numberbutt" onclick="onClickNumber('8')">
+        8
+      </button>
+      <button class="numberbutt" onclick="onClickNumber('9')">
+        9
+      </button>
+      <button class="numberbutt" onclick="onClickOperator('+')">
+        +
+      </button>
+      <button class="numberbutt longnumberbutt" onclick="onClickNumber('0')">
+        0
+      </button>
+
+      <button class="numberbutt">
+        .
+      </button>
+      <button class="numberbutt" onclick="onClickEquals()">
+        =
+      </button>
+    </div>
+  </body>
 </html>
