@@ -109,6 +109,8 @@ function onClickEquals() {
         value: result,
       };
       math.push(obj);
+
+      displayMath();
     }
   }
 }
@@ -118,7 +120,11 @@ function displayMath() {
   //        0    1    2   3
   let displayString = "";
   for (let index = 0; index < math.length; index++) {
-    displayString += math[index].value;
+    if (math[index].type === "number" || math[index].type === "result") {
+      displayString += commaNumber(math[index].value);
+    } else {
+      displayString += math[index].value;
+    }
   }
 
   document.getElementById("calculation").innerHTML = displayString;
