@@ -32,6 +32,34 @@ function onClickNumber(number) {
   displayMath();
 }
 
+function onClickDot() {
+  if (math.length === 0) {
+    let obj = {
+      type: "number",
+      value: "0.",
+    };
+    math.push(obj);
+    displayMath();
+  } else {
+    if (math[math.length - 1].type === "operator") {
+      let obj = {
+        type: "number",
+        value: "0.",
+      };
+      math.push(obj);
+      displayMath();
+    } else if (math[math.length - 1].type === "result") {
+      onClickClear();
+    } else if (math[math.length - 1].type === "number") {
+      if (math[math.length - 1].value.includes(".")) {
+        return;
+      }
+      math[math.length - 1].value = math[math.length - 1].value + ".";
+      displayMath();
+    }
+  }
+}
+
 function onClickOperator(operator) {
   if (math.length === 0) {
     return;
@@ -66,8 +94,8 @@ function onClickEquals() {
       //}
 
       //parse them as numbers
-      let prevValue = parseInt(prevValueObj.value);
-      let nextValue = parseInt(nextValueObj.value);
+      let prevValue = parseFloat(prevValueObj.value);
+      let nextValue = parseFloat(nextValueObj.value);
 
       if (valueObj.value === "/" && nextValue === 0) {
         displayCustomText("The Narwhal Bacons at Midnight");
